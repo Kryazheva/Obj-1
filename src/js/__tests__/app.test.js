@@ -4,7 +4,8 @@ test('sort keys name & level', () => {
   const obj = {
     name: 'мечник', health: 10, level: 2, attack: 80, defence: 40,
   };
-  expect(orderByProps(obj, ['name', 'level'])).toEqual([
+  const obj1 = ['name', 'level'];
+  expect(orderByProps(obj, obj1)).toEqual([
     { key: 'name', value: 'мечник' },
     { key: 'level', value: 2 },
     { key: 'attack', value: 80 },

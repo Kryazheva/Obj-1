@@ -6,7 +6,7 @@ export default function orderByProps(objectSort, arrSort = []) {
   let arrAllKey = [];
   for (const key in objectSort) {
     // eslint-disable-next-line no-unused-expressions
-    arrSort.indexOf(key) === -1 ? arrAllKey.push(key) : '';
+    !arrSort.includes(key) ? arrAllKey.push(key) : '';
   }
   arrAllKey = [...arrSort, ...arrAllKey.sort()];
 
@@ -16,3 +16,7 @@ export default function orderByProps(objectSort, arrSort = []) {
   }
   return result;
 }
+
+// так было бы короче
+// eslint-disable-next-line max-len
+// Object.keys(obj).sort((a, b) =>  t.reverse().indexOf(b) - t.reverse().indexOf(a)).map(key => ({key, value: obj[key]}))
